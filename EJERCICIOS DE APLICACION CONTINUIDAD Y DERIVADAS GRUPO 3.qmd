@@ -1,0 +1,111 @@
+---
+title: "EJERCICIOS DE APLICACION DE LA EMPRESA CREACIONES JUVENILES"
+author: "GRUPO 3"
+format: html
+editor: visual
+fecha: Semana del 2 al 6 de noviembre
+bibliography: "bibliografia CR.bib"
+notice: |
+  @*
+---
+
+# Ejercicio 1: Desigualdades aplicadas a Creaciones Juveniles
+
+## Planteamiento
+
+La utilidad de la empresa Creaciones Juveniles al fabricar ropa de trabajo está representada por:
+
+$$U(x)=\frac{x^2-4x-12}{x^2-5x+6}$$
+
+Determinar los valores de x para los cuales:
+
+$$\frac{x^2-4x-12}{x^2-5x+6}\ge0$$
+
+## Desarrollo
+
+Factorizando:
+
+$$\frac{(x-6)(x+2)}{(x-2)(x-3)}\ge0$$
+
+Los puntos críticos son:
+
+$$x=-2,\;x=2,\;x=3,\;x=6$$
+
+Analizando los signos en cada intervalo se obtiene:
+
+$$(-\infty,-2]\cup(2,3)\cup[6,+\infty)$$
+
+## Interpretación
+
+La utilidad de la empresa es favorable cuando la producción se encuentra en los intervalos:
+
+$$(-\infty,-2]\cup(2,3)\cup[6,+\infty)$$
+
+```{r}
+U <- function(x){
+  (x^2 - 4*x - 12)/(x^2 - 5*x + 6)
+}
+
+x <- seq(-5, 10, 0.01)
+
+plot(x, U(x),
+     type="l",
+     col="blue",
+     lwd=3,
+     main="Utilidad de Creaciones Juveniles",
+     xlab="Decenas de uniformes",
+     ylab="U(x)")
+
+abline(h=0,col="red",lwd=2)
+grid()
+```
+
+# Ejercicio 2: Derivada aplicada a Creaciones Juveniles
+
+## Enunciado
+
+El ingreso mensual de la empresa está representado por:
+
+$$I(x)=3x^2+8x+50$$
+
+Encontrar la derivada utilizando la definición:
+
+$$I'(x)=\lim_{h\to0}\frac{I(x+h)-I(x)}{h}$$
+
+## Desarrollo
+
+Calculamos:
+
+$$I(x+h)=3(x+h)^2+8(x+h)+50$$
+
+Desarrollando:
+
+$$I(x+h)=3x^2+6xh+3h^2+8x+8h+50$$
+
+Sustituyendo en la definición:
+
+$$\frac{I(x+h)-I(x)}{h}$$
+
+$$\frac{6xh+3h^2+8h}{h}$$
+
+$$6x+3h+8$$
+
+Aplicando el límite:
+
+$$I'(x)=\lim_{h\to0}(6x+3h+8)$$
+
+$$I'(x)=6x+8$$
+
+## Resultado
+
+$$\boxed{I'(x)=6x+8}$$
+
+Si la empresa vende 10 decenas de uniformes:
+
+$$I'(10)=6(10)+8$$
+
+$$I'(10)=68$$
+
+## Interpretación
+
+Cuando la empresa vende 100 uniformes, el ingreso aumenta aproximadamente 68 unidades monetarias por cada decena adicional de uniformes vendidos.[@creacionesjuveniles]
